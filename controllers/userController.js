@@ -77,7 +77,6 @@ const updateRandomUser = (req, res) => {
       });
       return;
     }
-    console.log(Result);
     let updatedArray = [];
     content.map((c) => {
       if (c.id == Number(id)) {
@@ -138,8 +137,6 @@ const deleteUser = (req, res) => {
       return;
     }
     const filteredUser = content.filter((u) => u.id !== Number(id));
-    console.log(id);
-    console.log(filteredUser);
     fs.writeFileSync("config.json", JSON.stringify(filteredUser));
     res.status(200).json({ message: "🥀 Delete user Successfully! 🥀" });
   } catch (error) {
